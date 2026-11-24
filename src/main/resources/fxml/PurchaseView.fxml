@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.businessmgmt.controller.PurchaseController"
+      spacing="10">
+    <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+
+    <!-- Page Title -->
+    <Label text="Purchase Management" styleClass="page-title"/>
+
+    <!-- Toolbar -->
+    <HBox styleClass="toolbar" spacing="10" alignment="CENTER_LEFT">
+        <Label text="From:" styleClass="form-label"/>
+        <DatePicker fx:id="dateFrom" promptText="Start Date" prefWidth="150" onAction="#onFilterChanged"/>
+        <Label text="To:" styleClass="form-label"/>
+        <DatePicker fx:id="dateTo" promptText="End Date" prefWidth="150" onAction="#onFilterChanged"/>
+        <ComboBox fx:id="supplierFilter" promptText="All Suppliers" prefWidth="180" onAction="#onFilterChanged"/>
+        <Button text="+ Add Purchase" onAction="#onAddPurchase" styleClass="primary-btn"/>
+    </HBox>
+
+    <!-- Purchases Table -->
+    <TableView fx:id="purchaseTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colSupplier" text="Supplier" prefWidth="180"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+            <TableColumn fx:id="colTotalAmount" text="Total Amount" prefWidth="130"/>
+            <TableColumn fx:id="colPaymentStatus" text="Payment Status" prefWidth="130"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+</VBox>

@@ -1,0 +1,19 @@
+# Compiled class files
+target/
+*.class
+
+# Binaries & runtime artifacts
+cp.txt
+sources.txt
+*.log
+
+# Local database cluster
+/pgdata/
+/pgdata_local/
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+.vscode/

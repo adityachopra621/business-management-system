@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.businessmgmt.controller.ReportsController"
+            fitToWidth="true" styleClass="scroll-pane">
+    <content>
+        <VBox spacing="15">
+            <padding><Insets top="5" right="5" bottom="20" left="5"/></padding>
+
+            <!-- Page Title -->
+            <Label text="Financial &amp; Business Reports" styleClass="page-title"/>
+
+            <!-- Filter & Selection Toolbar -->
+            <HBox styleClass="toolbar" spacing="10" alignment="CENTER_LEFT">
+                <Label text="From:" styleClass="form-label"/>
+                <DatePicker fx:id="dateFrom" promptText="Start Date" prefWidth="140"/>
+                <Label text="To:" styleClass="form-label"/>
+                <DatePicker fx:id="dateTo" promptText="End Date" prefWidth="140"/>
+
+                <Button text="Revenue Report" onAction="#onRevenueReport" styleClass="primary-btn"/>
+                <Button text="Expense Report" onAction="#onExpenseReport" styleClass="primary-btn"/>
+                <Button text="Profit &amp; Loss" onAction="#onProfitReport" styleClass="primary-btn"/>
+                <Button text="Product Profitability" onAction="#onProductProfitability" styleClass="primary-btn"/>
+            </HBox>
+
+            <!-- Active Report Heading & KPI Summary -->
+            <VBox spacing="8">
+                <Label fx:id="reportTitleLabel" text="Revenue Report" styleClass="section-title"/>
+                <HBox spacing="15">
+                    <VBox styleClass="dashboard-card, dashboard-card-revenue" spacing="5" prefWidth="240">
+                        <Label fx:id="summaryValueLabel1" text="\$0.00" styleClass="card-value"/>
+                        <Label fx:id="summaryTitleLabel1" text="Total Revenue" styleClass="card-label"/>
+                    </VBox>
+                    <VBox styleClass="dashboard-card, dashboard-card-expense" spacing="5" prefWidth="240">
+                        <Label fx:id="summaryValueLabel2" text="\$0.00" styleClass="card-value"/>
+                        <Label fx:id="summaryTitleLabel2" text="Total Expenses" styleClass="card-label"/>
+                    </VBox>
+                    <VBox styleClass="dashboard-card, dashboard-card-profit" spacing="5" prefWidth="240">
+                        <Label fx:id="summaryValueLabel3" text="\$0.00" styleClass="card-value"/>
+                        <Label fx:id="summaryTitleLabel3" text="Net Profit / Margin" styleClass="card-label"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Chart Visualization -->
+            <BarChart fx:id="reportChart" title="Financial Visualization" prefHeight="280" animated="false">
+                <xAxis><CategoryAxis fx:id="chartXAxis" label="Period / Category"/></xAxis>
+                <yAxis><NumberAxis fx:id="chartYAxis" label="Amount ($)"/></yAxis>
+            </BarChart>
+
+            <!-- Report Details Table -->
+            <Label text="Detailed Breakdown" styleClass="section-title"/>
+            <TableView fx:id="reportTable" prefHeight="260" VBox.vgrow="ALWAYS"/>
+
+        </VBox>
+    </content>
+</ScrollPane>
+

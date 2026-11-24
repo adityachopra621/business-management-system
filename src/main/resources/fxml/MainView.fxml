@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.businessmgmt.controller.MainController"
+            prefWidth="1200" prefHeight="800">
+
+    <!-- LEFT: Sidebar Navigation -->
+    <left>
+        <VBox styleClass="sidebar" spacing="2">
+            <children>
+                <Label text="📊 Business Manager" styleClass="sidebar-title"/>
+                <Separator/>
+
+                <Button fx:id="btnDashboard" text="  Dashboard" onAction="#onNavDashboard"
+                        styleClass="sidebar-btn, sidebar-btn-active" maxWidth="Infinity">
+                </Button>
+
+                <Button fx:id="btnInventory" text="  Inventory" onAction="#onNavInventory"
+                        styleClass="sidebar-btn" maxWidth="Infinity">
+                </Button>
+
+                <Button fx:id="btnSuppliers" text="  Suppliers" onAction="#onNavSuppliers"
+                        styleClass="sidebar-btn" maxWidth="Infinity">
+                </Button>
+
+                <Button fx:id="btnPurchases" text="  Purchases" onAction="#onNavPurchases"
+                        styleClass="sidebar-btn" maxWidth="Infinity">
+                </Button>
+
+                <Button fx:id="btnSales" text="  Sales" onAction="#onNavSales"
+                        styleClass="sidebar-btn" maxWidth="Infinity">
+                </Button>
+
+                <Button fx:id="btnCustomers" text="  Customers" onAction="#onNavCustomers"
+                        styleClass="sidebar-btn" maxWidth="Infinity">
+                </Button>
+
+                <Button fx:id="btnExpenses" text="  Expenses" onAction="#onNavExpenses"
+                        styleClass="sidebar-btn" maxWidth="Infinity">
+                </Button>
+
+                <Button fx:id="btnReports" text="  Reports" onAction="#onNavReports"
+                        styleClass="sidebar-btn" maxWidth="Infinity">
+                </Button>
+
+                <VBox VBox.vgrow="ALWAYS"/>
+
+                <Separator/>
+                <Button fx:id="btnLogout" text="🚪 Sign Out" onAction="#onLogout"
+                        styleClass="sidebar-btn, sidebar-btn-logout" maxWidth="Infinity">
+                </Button>
+            </children>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Content Area -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+
+</BorderPane>

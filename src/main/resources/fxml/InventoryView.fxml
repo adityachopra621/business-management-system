@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.businessmgmt.controller.InventoryController"
+      spacing="10">
+    <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+
+    <!-- Page Title -->
+    <Label text="Inventory Management" styleClass="page-title"/>
+
+    <!-- Toolbar -->
+    <HBox styleClass="toolbar" spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Search products..." styleClass="search-field"
+                   prefWidth="250" onKeyReleased="#onSearch"/>
+        <ComboBox fx:id="categoryFilter" promptText="All Categories" prefWidth="180"
+                  onAction="#onCategoryFilter"/>
+        <Button text="+ Add Product" onAction="#onAddProduct" styleClass="primary-btn"/>
+        <Button text="Manage Categories" onAction="#onManageCategories" styleClass="primary-btn"/>
+        <Button text="⚠ Low Stock" onAction="#onLowStock" styleClass="warning-btn"/>
+    </HBox>
+
+    <!-- Products Table -->
+    <TableView fx:id="productTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="60" sortable="true"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="180" sortable="true"/>
+            <TableColumn fx:id="colCategory" text="Category" prefWidth="130" sortable="true"/>
+            <TableColumn fx:id="colPurchasePrice" text="Purchase Price" prefWidth="120" sortable="true"/>
+            <TableColumn fx:id="colSellingPrice" text="Selling Price" prefWidth="120" sortable="true"/>
+            <TableColumn fx:id="colQuantity" text="Quantity" prefWidth="90" sortable="true"/>
+            <TableColumn fx:id="colMinStock" text="Min Stock" prefWidth="90" sortable="true"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="100" sortable="true"/>
+        </columns>
+    </TableView>
+
+</VBox>

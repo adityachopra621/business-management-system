@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.businessmgmt.controller.CustomerController"
+      spacing="10">
+    <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+
+    <!-- Page Title -->
+    <Label text="Customer Management" styleClass="page-title"/>
+
+    <!-- Toolbar -->
+    <HBox styleClass="toolbar" spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Search customers..." styleClass="search-field"
+                   prefWidth="260" onKeyReleased="#onSearch"/>
+        <Button text="+ Add Customer" onAction="#onAddCustomer" styleClass="primary-btn"/>
+    </HBox>
+
+    <!-- Customers Table -->
+    <TableView fx:id="customerTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="200"/>
+            <TableColumn fx:id="colPhone" text="Phone" prefWidth="130"/>
+            <TableColumn fx:id="colAddress" text="Address" prefWidth="240"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+</VBox>
+

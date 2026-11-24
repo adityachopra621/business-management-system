@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.businessmgmt.controller.SalesController"
+      spacing="10">
+    <padding><Insets top="5" right="5" bottom="10" left="5"/></padding>
+
+    <!-- Page Title -->
+    <Label text="Sales Management" styleClass="page-title"/>
+
+    <!-- Toolbar -->
+    <HBox styleClass="toolbar" spacing="10" alignment="CENTER_LEFT">
+        <Label text="From:" styleClass="form-label"/>
+        <DatePicker fx:id="dateFrom" promptText="Start Date" prefWidth="140" onAction="#onFilterChanged"/>
+        <Label text="To:" styleClass="form-label"/>
+        <DatePicker fx:id="dateTo" promptText="End Date" prefWidth="140" onAction="#onFilterChanged"/>
+        <ComboBox fx:id="customerFilter" promptText="All Customers" prefWidth="180" onAction="#onFilterChanged"/>
+        <Button text="+ New Sale" onAction="#onNewSale" styleClass="primary-btn"/>
+    </HBox>
+
+    <!-- Sales Table -->
+    <TableView fx:id="salesTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="Invoice #" prefWidth="90"/>
+            <TableColumn fx:id="colCustomer" text="Customer" prefWidth="180"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="110"/>
+            <TableColumn fx:id="colSubtotal" text="Subtotal" prefWidth="120"/>
+            <TableColumn fx:id="colDiscount" text="Discount %" prefWidth="90"/>
+            <TableColumn fx:id="colTotalAmount" text="Total Amount" prefWidth="130"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="180" visible="false"/>
+        </columns>
+    </TableView>
+
+</VBox>
+

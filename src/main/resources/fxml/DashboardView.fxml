@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.businessmgmt.controller.DashboardController"
+            fitToWidth="true" styleClass="scroll-pane">
+
+    <content>
+        <VBox spacing="20">
+            <padding><Insets top="5" right="5" bottom="20" left="5"/></padding>
+
+            <!-- Page Title -->
+            <Label text="Dashboard" styleClass="page-title"/>
+
+            <!-- Dashboard Cards -->
+            <FlowPane hgap="15" vgap="15">
+                <!-- Total Revenue -->
+                <VBox styleClass="dashboard-card, dashboard-card-revenue" spacing="5">
+                    <Label fx:id="totalRevenue" text="\$0.00" styleClass="card-value"/>
+                    <Label text="Total Revenue" styleClass="card-label"/>
+                </VBox>
+
+                <!-- Total Expenses -->
+                <VBox styleClass="dashboard-card, dashboard-card-expense" spacing="5">
+                    <Label fx:id="totalExpenses" text="\$0.00" styleClass="card-value"/>
+                    <Label text="Total Expenses" styleClass="card-label"/>
+                </VBox>
+
+                <!-- Net Profit -->
+                <VBox styleClass="dashboard-card, dashboard-card-profit" spacing="5">
+                    <Label fx:id="netProfit" text="\$0.00" styleClass="card-value"/>
+                    <Label text="Net Profit" styleClass="card-label"/>
+                </VBox>
+
+                <!-- Inventory Value -->
+                <VBox styleClass="dashboard-card, dashboard-card-inventory" spacing="5">
+                    <Label fx:id="inventoryValue" text="\$0.00" styleClass="card-value"/>
+                    <Label text="Inventory Value" styleClass="card-label"/>
+                </VBox>
+
+                <!-- Low Stock Items -->
+                <VBox styleClass="dashboard-card, dashboard-card-warning" spacing="5">
+                    <Label fx:id="lowStockCount" text="0" styleClass="card-value"/>
+                    <Label text="Low Stock Items" styleClass="card-label"/>
+                </VBox>
+
+                <!-- Total Products -->
+                <VBox styleClass="dashboard-card, dashboard-card-info" spacing="5">
+                    <Label fx:id="totalProducts" text="0" styleClass="card-value"/>
+                    <Label text="Total Products" styleClass="card-label"/>
+                </VBox>
+            </FlowPane>
+
+            <!-- Charts Row -->
+            <HBox spacing="20">
+                <!-- Revenue vs Expenses Bar Chart -->
+                <VBox HBox.hgrow="ALWAYS">
+                    <BarChart fx:id="revenueChart" title="Monthly Revenue vs Expenses"
+                              prefHeight="300" animated="false">
+                        <xAxis><CategoryAxis label="Month"/></xAxis>
+                        <yAxis><NumberAxis label="Amount ($)"/></yAxis>
+                    </BarChart>
+                </VBox>
+
+                <!-- Top Products Pie Chart -->
+                <VBox HBox.hgrow="ALWAYS">
+                    <PieChart fx:id="topProductsChart" title="Top Selling Products"
+                              prefHeight="300" labelsVisible="true"/>
+                </VBox>
+            </HBox>
+
+            <!-- Recent Activity Tables -->
+            <HBox spacing="20">
+                <!-- Recent Sales -->
+                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                    <Label text="Recent Sales" styleClass="section-title"/>
+                    <TableView fx:id="recentSalesTable" prefHeight="200">
+                        <columns>
+                            <TableColumn fx:id="recentSaleCustomerCol" text="Customer" prefWidth="120"/>
+                            <TableColumn fx:id="recentSaleDateCol" text="Date" prefWidth="100"/>
+                            <TableColumn fx:id="recentSaleAmountCol" text="Amount" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Recent Purchases -->
+                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                    <Label text="Recent Purchases" styleClass="section-title"/>
+                    <TableView fx:id="recentPurchasesTable" prefHeight="200">
+                        <columns>
+                            <TableColumn fx:id="recentPurchaseSupplierCol" text="Supplier" prefWidth="120"/>
+                            <TableColumn fx:id="recentPurchaseDateCol" text="Date" prefWidth="100"/>
+                            <TableColumn fx:id="recentPurchaseAmountCol" text="Amount" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Recent Expenses -->
+                <VBox spacing="8" HBox.hgrow="ALWAYS">
+                    <Label text="Recent Expenses" styleClass="section-title"/>
+                    <TableView fx:id="recentExpensesTable" prefHeight="200">
+                        <columns>
+                            <TableColumn fx:id="recentExpenseCategoryCol" text="Category" prefWidth="120"/>
+                            <TableColumn fx:id="recentExpenseDateCol" text="Date" prefWidth="100"/>
+                            <TableColumn fx:id="recentExpenseAmountCol" text="Amount" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </HBox>
+
+        </VBox>
+    </content>
+</ScrollPane>

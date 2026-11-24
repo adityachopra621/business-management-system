@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.businessmgmt.controller.LoginController"
+      styleClass="landing-root" prefWidth="950" prefHeight="620">
+
+    <!-- LEFT: Showcase / Hero Landing Panel -->
+    <VBox HBox.hgrow="ALWAYS" styleClass="landing-hero-pane" alignment="CENTER_LEFT" spacing="24">
+        <padding>
+            <Insets top="50" right="50" bottom="50" left="60"/>
+        </padding>
+
+        <!-- Brand Badge -->
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="💼" style="-fx-font-size: 32px;"/>
+            <VBox spacing="2">
+                <Label text="ENTERPRISE SUITE" styleClass="landing-badge"/>
+                <Label text="Business Management System" styleClass="landing-hero-title"/>
+            </VBox>
+        </HBox>
+
+        <Label text="All-in-one platform for sales, stock inventory tracking, purchase management, suppliers, and financial reporting."
+               styleClass="landing-hero-description" wrapText="true" maxWidth="440"/>
+
+        <!-- Feature Highlights -->
+        <VBox spacing="14" styleClass="landing-features-box">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="✓" styleClass="feature-check"/>
+                <VBox spacing="2">
+                    <Label text="Real-Time Analytics" styleClass="feature-title"/>
+                    <Label text="Live revenue, expense monitoring, and profit margins." styleClass="feature-sub"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="✓" styleClass="feature-check"/>
+                <VBox spacing="2">
+                    <Label text="Inventory &amp; Low Stock Alerts" styleClass="feature-title"/>
+                    <Label text="Automated alerts for fast replenishment and reordering." styleClass="feature-sub"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="✓" styleClass="feature-check"/>
+                <VBox spacing="2">
+                    <Label text="Financial Reports &amp; Breakdown" styleClass="feature-title"/>
+                    <Label text="Instant revenue, expense, and profitability summaries." styleClass="feature-sub"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <VBox VBox.vgrow="ALWAYS"/>
+
+        <!-- Version Footer -->
+        <Label text="Version 1.0.0 • Connected to PostgreSQL Database" styleClass="landing-version-tag"/>
+    </VBox>
+
+    <!-- RIGHT: Dedicated Login Card Panel -->
+    <VBox alignment="CENTER" styleClass="landing-form-pane" prefWidth="420" minWidth="380" spacing="22">
+        <padding>
+            <Insets top="45" right="45" bottom="45" left="45"/>
+        </padding>
+
+        <VBox spacing="6" alignment="CENTER_LEFT" fillWidth="true">
+            <Label text="Welcome back" styleClass="form-welcome-title"/>
+            <Label text="Enter your admin credentials to access the console" styleClass="form-welcome-sub"/>
+        </VBox>
+
+        <!-- Dynamic Error Banner -->
+        <Label fx:id="errorMessageLabel" text="" styleClass="login-error-label" visible="false" managed="false" wrapText="true" maxWidth="Infinity"/>
+
+        <!-- Inputs Form -->
+        <VBox spacing="16" fillWidth="true">
+            <VBox spacing="6">
+                <Label text="USERNAME / EMAIL" styleClass="landing-input-label"/>
+                <TextField fx:id="usernameField" promptText="admin@123"
+                           styleClass="landing-text-field" onAction="#handleLogin"/>
+            </VBox>
+
+            <VBox spacing="6">
+                <Label text="PASSWORD" styleClass="landing-input-label"/>
+                <PasswordField fx:id="passwordField" promptText="••••••••"
+                               styleClass="landing-text-field" onAction="#handleLogin"/>
+            </VBox>
+        </VBox>
+
+        <!-- Sign In Button -->
+        <Button text="Sign In to Dashboard →" onAction="#handleLogin" styleClass="landing-signin-btn" maxWidth="Infinity" defaultButton="true"/>
+
+        <!-- Credentials hint pill -->
+        <HBox alignment="CENTER" styleClass="landing-hint-pill" spacing="8">
+            <Label text="🔒" style="-fx-font-size: 13px;"/>
+            <Label text="Default Admin: admin@123 / 12345" styleClass="landing-hint-text"/>
+        </HBox>
+    </VBox>
+
+</HBox>
